@@ -74,7 +74,7 @@ d3.csv("assets/js/data.csv").then(function(Data) {
     .attr("stroke", "green");
 
   // append circles to data points
-  var circlesGroup = chartGroup.selectAll("circle")
+  var circlesGroup = chartGroup.selectAll("g")
     .data(Data)
     .enter()
     .append("circle")
@@ -84,12 +84,12 @@ d3.csv("assets/js/data.csv").then(function(Data) {
     .attr("fill", "blue")
     .attr("opacity", ".5");
 
-   var textGroup = chartGroup.selectAll("text")
+   var textGroup = chartGroup.selectAll("g")
     .data(Data)
     .enter()
     .append("text").text(d => d.abbr)
-    .attr('x', d => xLinearScale(d.poverty)-0.3)
-    .attr('y', d => yLinearScale(d.healthcare)-0.1)
+    .attr('x', d => xLinearScale(d.poverty))
+    .attr('y', d => yLinearScale(d.healthcare))
     .attr('font-size', 8)
     .attr("fill", "white")
     .attr("opacity", "1");
